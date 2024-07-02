@@ -1,0 +1,15 @@
+# postgres_exporter.yml
+# PostgreSQL exporter configuration
+
+# Data source name
+data_source_name: "postgresql://username:password@localhost:5432/postgres?sslmode=disable"
+
+# Metrics to be collected
+queries:
+  query_name:
+    query: "SELECT * FROM pg_stat_activity;"
+    metrics:
+      - name: pg_stat_activity_count
+        usage: "GAUGE"
+        description: "Number of active connections"
+        value: "count(*)"
